@@ -25,3 +25,5 @@ const destinations = [
         description: "Johannesburg is the place to go to mix big-city culture, shopping, dining and nightlife with outdoor adventures, up-close wildlife encounters and visits to historical sites. Explore caves and nature reserves, or visit a traditional village by day, then enjoy dinner at a hip cafe or five-star restaurant. And if you're a shopper, bring an extra, empty suitcase. With malls, open-air markets and places that blend the two, you'll find plenty of unique souvenirs."
     },
 ]
+
+
