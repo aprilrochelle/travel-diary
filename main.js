@@ -45,3 +45,19 @@ const domStringBuilder = (travelArray) => {
     printToDom(domString,'card-holder');
 }
 domStringBuilder(destinations);
+
+const cardHolder = document.getElementById('card-holder');
+
+cardHolder.addEventListener('click', (e) => {
+    if (e.target.id === 'Mexico-btn') {
+        console.log('Mexico!');
+    } else if (e.target.id === 'Curacao-btn') {
+        console.log('Curacao!');
+    } else if (e.target.id === 'Rome-btn') {
+        console.log('Rome!');
+    } else if (e.target.id === 'Sydney-btn') {
+        console.log('Sydney!');
+    } else {
+        console.log('Johannesburg!');
+    }
+});
