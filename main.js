@@ -34,8 +34,8 @@ const printToDom = (domString, divId) => {
 const domStringBuilder = (travelArray) => {
     let domString = '';
     travelArray.forEach((travelSpot) => {
-        domString += `<div class="travel-card">`;
-        domString += `<h3>${travelSpot.title}</h3>`;
+        domString += `<div class="travel-card" id="${travelSpot.title}-input-crd">`;
+        domString += `<h3 class="travel-header" id="${travelSpot.title}">${travelSpot.title}</h3>`;
         domString += `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
         domString += `<p>${travelSpot.description}</p>`;
         domString += `<textarea id="${travelSpot.title}-input" name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
@@ -46,18 +46,29 @@ const domStringBuilder = (travelArray) => {
 }
 domStringBuilder(destinations);
 
-const cardHolder = document.getElementById('card-holder');
+const cardDiv = document.getElementById('card-holder');
 
-cardHolder.addEventListener('click', (e) => {
+cardDiv.addEventListener('click', (e) => {
     if (e.target.id === 'Mexico-btn') {
-        console.log('Mexico!');
+        diaryOutput('Mexico-input', 'Mexico');
     } else if (e.target.id === 'Curacao-btn') {
-        console.log('Curacao!');
+        diaryOutput('Curacao-input', 'Curacao');
     } else if (e.target.id === 'Rome-btn') {
-        console.log('Rome!');
+        diaryOutput('Rome-input', 'Rome');
     } else if (e.target.id === 'Sydney-btn') {
-        console.log('Sydney!');
-    } else {
-        console.log('Johannesburg!');
+        diaryOutput('Sydney-input', 'Sydney');
+    } else if (e.target.id === 'Johannesburg-btn') {
+        diaryOutput('Johannesburg-input', 'Johannesburg');
     }
 });
+
+const diaryOutput = (travelInput, travelHeader) => {
+    let outputString = document.getElementById(travelInput).value;
+    let entryHeader = document.getElementById(travelHeader).innerHTML;
+    let diaryEntry = '';
+        diaryEntry += `<div class="diary-card">`;
+        diaryEntry +=   `<h4>${entryHeader} Diary</h4>`;
+        diaryEntry +=   `<p>${outputString}</p>`;
+        diaryEntry += `</div>`;
+    printToDom(diaryEntry,'diary-output');
+}
