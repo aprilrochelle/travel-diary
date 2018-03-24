@@ -55,6 +55,7 @@ const diaryOutput = (e) => {
         diaryEntry +=   `<button class="delete-btn">Delete Entry</button>`;
         diaryEntry += `</div>`;
     printToDom(diaryEntry,'diary-output');
+    eventListener2();
 }
 
 const deleteEntry = (e) => {
@@ -62,13 +63,14 @@ const deleteEntry = (e) => {
     divToDisappear.classList.add('deleted');
 }
 
-const eventListenerz = () => {
+const eventListener1 = () => {
     const cardBtn = document.getElementsByClassName('card-button');
-
     for (let i = 0; i < cardBtn.length; i++) {
         cardBtn[i].addEventListener('click', diaryOutput);
     }    
+}
 
+const eventListener2 = () => {
     const deleteBtns = document.getElementsByClassName('delete-btn');
     for (let j=0; j<deleteBtns.length; j++) {
         deleteBtns[j].addEventListener('click', deleteEntry);
@@ -77,7 +79,7 @@ const eventListenerz = () => {
 
 const startApp = () => {
     domStringBuilder(destinations);
-    eventListenerz();
+    eventListener1();
 }
 
 startApp();
