@@ -34,41 +34,39 @@ const printToDom = (domString, divId) => {
 const domStringBuilder = (travelArray) => {
     let domString = '';
     travelArray.forEach((travelSpot) => {
-        domString += `<div class="travel-card" id="${travelSpot.title}-input-crd">`;
-        domString += `<h3 class="travel-header" id="${travelSpot.title}">${travelSpot.title}</h3>`;
-        domString += `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
-        domString += `<p>${travelSpot.description}</p>`;
-        domString += `<textarea id="${travelSpot.title}-input" name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
-        domString += `<button id="${travelSpot.title}-btn" class="card-button">Add Entry</button>`;
+        domString += `<div class="travel-card">`;
+        domString +=    `<h3 class="travel-header">${travelSpot.title}</h3>`;
+        domString +=    `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
+        domString +=    `<p>${travelSpot.description}</p>`;
+        domString +=    `<textarea name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
+        domString +=    `<button class="card-button">Add Entry</button>`;
         domString += `</div>`;
     });
     printToDom(domString,'card-holder');
 }
-domStringBuilder(destinations);
 
-const cardDiv = document.getElementById('card-holder');
 
-cardDiv.addEventListener('click', (e) => {
-    if (e.target.id === 'Mexico-btn') {
-        diaryOutput('Mexico-input', 'Mexico');
-    } else if (e.target.id === 'Curacao-btn') {
-        diaryOutput('Curacao-input', 'Curacao');
-    } else if (e.target.id === 'Rome-btn') {
-        diaryOutput('Rome-input', 'Rome');
-    } else if (e.target.id === 'Sydney-btn') {
-        diaryOutput('Sydney-input', 'Sydney');
-    } else if (e.target.id === 'Johannesburg-btn') {
-        diaryOutput('Johannesburg-input', 'Johannesburg');
-    }
-});
-
-const diaryOutput = (travelInput, travelHeader) => {
-    let outputString = document.getElementById(travelInput).value;
-    let entryHeader = document.getElementById(travelHeader).innerHTML;
+const diaryOutput = (e) => {
+    const buttonClicked = e.target;
     let diaryEntry = '';
         diaryEntry += `<div class="diary-card">`;
-        diaryEntry +=   `<h4>${entryHeader} Diary</h4>`;
-        diaryEntry +=   `<p>${outputString}</p>`;
+        diaryEntry +=   `<h4>${buttonClicked.parentNode.children[0].innerHTML} Diary</h4>`;
+        diaryEntry +=   `<p>${buttonClicked.parentNode.children[3].value}</p>`;
         diaryEntry += `</div>`;
     printToDom(diaryEntry,'diary-output');
 }
+
+const eventListenerz = () => {
+    const cardBtn = document.getElementsByClassName('card-button');
+
+    for (let i = 0; i < cardBtn.length; i++) {
+        cardBtn[i].addEventListener('click', diaryOutput);
+    }    
+}
+
+const startApp = () => {
+    domStringBuilder(destinations);
+    eventListenerz();
+}
+
+startApp();
