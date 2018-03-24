@@ -1,4 +1,78 @@
 body {
-    background-color: turquoise;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+}
+
+header img {
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 3.5em;
+    text-align: center;
+    color: rgb(104, 158, 238);
+}
+
+.wrapper-div {
+    width: 100%;
+}
+
+#card-holder {
+    text-align: center;
+}
+
+.content-div {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.travel-card {
+    width: 25%;
+    margin: 1.5%;
+    background-color: rgb(104, 158, 238);
+    border: 5px solid mediumturquoise;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 500px;
+}
+
+.travel-header {
     color: white;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 7px;
+}
+
+.card-button {
+    padding: 3px;
+    background-color: rgb(1, 52, 91);
+    color: white;
+    border-radius: 4px;
+    display: block;
+    margin: 5px auto;
+}
+
+.diary-card {
+    padding: 20px;
+    border: 5px solid mediumturquoise;
+    margin-top: 10px;
+}
+
+.diary-card h4 {
+    color: rgb(1, 52, 91);
+    font-family: 'Pacifico', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    border-bottom: 2px lightgray solid;
+    width: 80%;
 }
