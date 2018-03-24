@@ -28,7 +28,7 @@ const destinations = [
 
 const printToDom = (domString, divId) => {
     const printTo = document.getElementById(divId);
-    printTo.innerHTML = domString;
+    printTo.innerHTML += domString;
 }
 
 const domStringBuilder = (travelArray) => {
