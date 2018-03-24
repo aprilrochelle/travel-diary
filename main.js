@@ -16,7 +16,7 @@ const destinations = [
     },
     {
         title: "Sydney, Australia",
-        image: "https://latte-analytics.sydney.edu.au/wp-content/uploads/2017/03/sydney-image.jpg",
+        image: "https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2e/15/sydney.jpg",
         description: "Sydney offers plenty of historical and contemporary Australian flavor. The marvelous Sydney Opera House looks like a great origami sailboat, floating peacefully in a harbor."
     },
     {
@@ -52,8 +52,14 @@ const diaryOutput = (e) => {
         diaryEntry += `<div class="diary-card">`;
         diaryEntry +=   `<h4>${buttonClicked.parentNode.children[0].innerHTML}</h4>`;
         diaryEntry +=   `<p>${buttonClicked.parentNode.children[3].value}</p>`;
+        diaryEntry +=   `<button class="delete-btn">Delete Entry</button>`;
         diaryEntry += `</div>`;
     printToDom(diaryEntry,'diary-output');
+}
+
+const deleteEntry = (e) => {
+    const divToDisappear = e.target.parentNode;
+    divToDisappear.classList.add('deleted');
 }
 
 const eventListenerz = () => {
@@ -62,6 +68,11 @@ const eventListenerz = () => {
     for (let i = 0; i < cardBtn.length; i++) {
         cardBtn[i].addEventListener('click', diaryOutput);
     }    
+
+    const deleteBtns = document.getElementsByClassName('delete-btn');
+    for (let j=0; j<deleteBtns.length; j++) {
+        deleteBtns[j].addEventListener('click', deleteEntry);
+    }
 }
 
 const startApp = () => {
