@@ -63,7 +63,8 @@ h1 {
 .diary-card {
     padding: 20px;
     border: 5px solid mediumturquoise;
-    margin-top: 10px;
+    margin: 10px auto 0 auto;
+    width: 90%;
 }
 
 .diary-card h4 {
@@ -74,5 +75,8 @@ h1 {
     margin-bottom: 6px;
     margin-top: 6px;
     border-bottom: 2px lightgray solid;
-    width: 80%;
+}
+
+.deleted {
+    display: none;
 }
