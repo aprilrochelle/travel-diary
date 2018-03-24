@@ -28,36 +28,45 @@ const destinations = [
 
 const printToDom = (domString, divId) => {
     const printTo = document.getElementById(divId);
-    printTo.innerHTML = domString;
+    printTo.innerHTML += domString;
 }
 
 const domStringBuilder = (travelArray) => {
     let domString = '';
     travelArray.forEach((travelSpot) => {
         domString += `<div class="travel-card">`;
-        domString += `<h3>${travelSpot.title}</h3>`;
-        domString += `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
-        domString += `<p>${travelSpot.description}</p>`;
-        domString += `<textarea id="${travelSpot.title}-input" name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
-        domString += `<button id="${travelSpot.title}-btn" class="card-button">Add Entry</button>`;
+        domString +=    `<h3 class="travel-header">${travelSpot.title}</h3>`;
+        domString +=    `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
+        domString +=    `<p>${travelSpot.description}</p>`;
+        domString +=    `<textarea name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
+        domString +=    `<button class="card-button">Add Entry</button>`;
         domString += `</div>`;
     });
     printToDom(domString,'card-holder');
 }
-domStringBuilder(destinations);
 
-const cardHolder = document.getElementById('card-holder');
 
-cardHolder.addEventListener('click', (e) => {
-    if (e.target.id === 'Mexico-btn') {
-        console.log('Mexico!');
-    } else if (e.target.id === 'Curacao-btn') {
-        console.log('Curacao!');
-    } else if (e.target.id === 'Rome-btn') {
-        console.log('Rome!');
-    } else if (e.target.id === 'Sydney-btn') {
-        console.log('Sydney!');
-    } else {
-        console.log('Johannesburg!');
-    }
-});
+const diaryOutput = (e) => {
+    const buttonClicked = e.target;
+    let diaryEntry = '';
+        diaryEntry += `<div class="diary-card">`;
+        diaryEntry +=   `<h4>${buttonClicked.parentNode.children[0].innerHTML} Diary</h4>`;
+        diaryEntry +=   `<p>${buttonClicked.parentNode.children[3].value}</p>`;
+        diaryEntry += `</div>`;
+    printToDom(diaryEntry,'diary-output');
+}
+
+const eventListenerz = () => {
+    const cardBtn = document.getElementsByClassName('card-button');
+
+    for (let i = 0; i < cardBtn.length; i++) {
+        cardBtn[i].addEventListener('click', diaryOutput);
+    }    
+}
+
+const startApp = () => {
+    domStringBuilder(destinations);
+    eventListenerz();
+}
+
+startApp();
