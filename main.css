@@ -44,6 +44,10 @@ h1 {
     min-height: 500px;
 }
 
+.travel-card .recolored {
+    background-color: rgb(1, 72, 126);
+}
+
 .travel-header {
     color: white;
     font-family: 'Oxygen', sans-serif;
