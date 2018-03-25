@@ -36,9 +36,9 @@ const domStringBuilder = (travelArray) => {
     travelArray.forEach((travelSpot) => {
         domString += `<div class="travel-card">`;
         domString +=    `<h3 class="travel-header">${travelSpot.title}</h3>`;
-        domString +=    `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}" width="250">`;
+        domString +=    `<img src="${travelSpot.image}" alt="Photo of ${travelSpot.title}">`;
         domString +=    `<p>${travelSpot.description}</p>`;
-        domString +=    `<textarea name="${travelSpot.title}" rows="4" cols="30"></textarea>`;
+        domString +=    `<textarea name="${travelSpot.title}" rows="4"></textarea>`;
         domString +=    `<button class="card-button">Add Entry</button>`;
         domString += `</div>`;
     });
