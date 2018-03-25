@@ -45,6 +45,10 @@ const domStringBuilder = (travelArray) => {
     printToDom(domString,'card-holder');
 }
 
+const doStuff = (e) => {
+    diaryOutput(e);
+    changeColor(e);
+}
 
 const diaryOutput = (e) => {
     const buttonClicked = e.target;
@@ -58,6 +62,11 @@ const diaryOutput = (e) => {
     eventListener2();
 }
 
+const changeColor = (e) => {
+    const cardColored = e.target.parentNode;
+    cardColored.classList.add('recolored');
+}
+
 const deleteEntry = (e) => {
     const divToDisappear = e.target.parentNode;
     divToDisappear.classList.add('deleted');
@@ -66,7 +75,7 @@ const deleteEntry = (e) => {
 const eventListener1 = () => {
     const cardBtn = document.getElementsByClassName('card-button');
     for (let i = 0; i < cardBtn.length; i++) {
-        cardBtn[i].addEventListener('click', diaryOutput);
+        cardBtn[i].addEventListener('click', doStuff);
     }    
 }
 

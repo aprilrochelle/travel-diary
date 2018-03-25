@@ -44,6 +44,11 @@ h1 {
     min-height: 500px;
 }
 
+div .recolored {
+    background-color: rgb(1, 72, 126);
+    color: white;
+}
+
 .travel-header {
     color: white;
     font-family: 'Oxygen', sans-serif;
@@ -59,6 +64,7 @@ h1 {
     display: block;
     margin: 5px auto;
 }
+
 
 .diary-card {
     padding: 20px;
