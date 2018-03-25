@@ -58,10 +58,10 @@ const diaryOutput = (e) => {
     eventListener2();
 }
 
-const changeColor = (e) => {
-    const cardColored = e.target.parentNode;
-    cardColored.classList.add('recolored');
-}
+// const changeColor = (e) => {
+//     const cardColored = e.target.parentNode;
+//     cardColored.classList.add('recolored');
+// }
 
 const deleteEntry = (e) => {
     const divToDisappear = e.target.parentNode;
@@ -71,7 +71,7 @@ const deleteEntry = (e) => {
 const eventListener1 = () => {
     const cardBtn = document.getElementsByClassName('card-button');
     for (let i = 0; i < cardBtn.length; i++) {
-        cardBtn[i].addEventListener('click', diaryOutput).addEventListener('click', changeColor);
+        cardBtn[i].addEventListener('click', diaryOutput);
     }    
 }
 
